@@ -2,6 +2,10 @@
 
 Please provide a brief summary of the changes proposed in this pull request.
 
+## Tickets
+
+Include information and links to relevant Jira Tickets here. 
+
 ## Cloud Changes
 
 - [ ] List any changes made to cloud infrastructure or configurations, including the reasoning behind the changes.
@@ -31,7 +35,8 @@ Please provide a brief summary of the changes proposed in this pull request.
 - [ ] I have added any relevant documentation or comments to the code
 - [ ] I have reviewed the changes and signed off on them
 - [ ] I have added reviewers to the pull request
+- [ ] I have added ticket information to this Pull Request
 
 ## Reviewers
 
-- [ ] @mention the appropriate team members who should review this pull request.
+- [ ] @mention the appropriate team members in addition to people selected as reviewers in pull request.
