@@ -10,18 +10,17 @@ Include information and links to relevant Jira Tickets here.
 
 - [ ] List any changes made to cloud infrastructure or configurations, including the reasoning behind the changes.
 
-## Embedded Changes
+## Wireless Team Changes
 
 - [ ] List any changes made to embedded systems or device configurations, including the reasoning behind the changes.
 
-## Application Changes
+## User Interface
 
 - [ ] List any changes made to the application code, including the reasoning behind the changes.
 
 ## Test Plan
 
-- [ ] Provide Test Specifications or Tickets that have been generated for QE.
-- [ ] Include instructions for how to run the tests and what to expect as the outcome.
+- [ ] Place Test Specifications (if they were done)
 
 ## Additional Notes
 
