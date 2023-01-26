@@ -8,26 +8,28 @@ Include information and links to relevant Jira Tickets here.
 
 ## Cloud Changes
 
-- [ ] List any changes made to cloud infrastructure or configurations, including the reasoning behind the changes.
+List any changes made to cloud infrastructure or configurations, including the reasoning behind the changes.
 
 ## Wireless Team Changes
 
-- [ ] List any changes made to embedded systems or device configurations, including the reasoning behind the changes.
+List any changes made to embedded systems or device configurations, including the reasoning behind the changes.
 
 ## User Interface
 
-- [ ] List any changes made to the application code, including the reasoning behind the changes.
+List any changes made to the application code, including the reasoning behind the changes.
 
 ## Test Plan
 
-- [ ] Place Test Specifications (if they were done)
+Place Test Specifications (if they were done)
 
 ## Additional Notes
 
-- [ ] Provide any additional notes or information that may be relevant to this pull request.
-- [ ] Please include any relevant links or resources, such as related issues or documentation.
+Provide any additional notes or information that may be relevant to this pull request.
+Please include any relevant links or resources, such as related issues or documentation.
 
 ## Checklist
+- [ ] I have updated the Title with Jira Ticket Id
+- [ ] I have listed critical dependencies in Additional Notes / Overview
 - [ ] I have read the [contributing guidelines](CONTRIBUTING.md) and my changes adhere to them
 - [ ] I have scheduled a formal code review with atleast 2 others, and applied feedback
 - [ ] I have worked with QE to generate relevant test cases
@@ -35,7 +37,3 @@ Include information and links to relevant Jira Tickets here.
 - [ ] I have reviewed the changes and signed off on them
 - [ ] I have added reviewers to the pull request
 - [ ] I have added ticket information to this Pull Request
-
-## Reviewers
-
-- [ ] @mention the appropriate team members in addition to people selected as reviewers in pull request.
