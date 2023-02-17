@@ -1,33 +1,35 @@
 ## Overview
+<!-- Please provide a brief summary of the changes proposed in this pull request. Make sure branch name matches the ticket below. -->
 
-Please provide a brief summary of the changes proposed in this pull request. Make sure branch name matches the ticket below.
 
 ## Ticket
+<!-- Place associated JIRA ticket link here in this format: [NEX-XXXX](URL). -->
+<!-- You can copy the ticket link located at top of the ticket page and paste it here. Github will format it automatically for you. -->
 
-[NEX-XXXX](URL)
 
 ## Cloud Changes
+<!-- List any changes made to cloud infrastructure or configurations, including the reasoning behind the changes. -->
 
-List any changes made to cloud infrastructure or configurations, including the reasoning behind the changes.
 
 ## Wireless Team Changes
+<!-- List any changes made to embedded systems or device configurations, including the reasoning behind the changes. -->
 
-List any changes made to embedded systems or device configurations, including the reasoning behind the changes.
 
 ## User Interface
+<!-- List any changes made to the application code, including the reasoning behind the changes. -->
 
-List any changes made to the application code, including the reasoning behind the changes.
 
 ## Test Plan
+<!-- Place Test Specifications (if they were done) -->
 
-Place Test Specifications (if they were done)
 
 ## Additional Notes
+<!-- Provide any additional notes or information that may be relevant to this pull request. -->
+<!-- Please include any relevant links or resources, such as related issues or documentation. -->
 
-Provide any additional notes or information that may be relevant to this pull request.
-Please include any relevant links or resources, such as related issues or documentation.
 
 ## Procedures
+
 - I have updated the Title with Jira Ticket Id
 - I have listed critical dependencies in Additional Notes / Overview
 - I have read the [contributing guidelines](CONTRIBUTING.md) and my changes adhere to them
