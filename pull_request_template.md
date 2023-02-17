@@ -3,7 +3,8 @@
 
 
 ## Ticket
-<!-- [NEX-XXXX](URL) -->
+<!-- Place associated JIRA ticket link here in this format: [NEX-XXXX](URL). -->
+<!-- You can copy the ticket link located at top of the ticket page and paste it here. Github will format it automatically for you. -->
 
 
 ## Cloud Changes
