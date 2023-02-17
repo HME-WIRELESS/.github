@@ -30,12 +30,12 @@
 
 ## Procedures
 
-- [ ] I have updated the Title with Jira Ticket Id
-- [ ] I have listed critical dependencies in Additional Notes / Overview
-- [ ] I have read the [contributing guidelines](CONTRIBUTING.md) and my changes adhere to them
-- [ ] I have scheduled a formal code review with atleast 2 others, and applied feedback
-- [ ] I have worked with QE to generate relevant test cases
-- [ ] I have added any relevant documentation or comments to the code
-- [ ] I have reviewed the changes and signed off on them
-- [ ] I have added reviewers to the pull request
-- [ ] I have added ticket information to this Pull Request
+- I have updated the Title with Jira Ticket Id
+- I have listed critical dependencies in Additional Notes / Overview
+- I have read the [contributing guidelines](CONTRIBUTING.md) and my changes adhere to them
+- I have scheduled a formal code review with atleast 2 others, and applied feedback
+- I have worked with QE to generate relevant test cases
+- I have added any relevant documentation or comments to the code
+- I have reviewed the changes and signed off on them
+- I have added reviewers to the pull request
+- I have added ticket information to this Pull Request
