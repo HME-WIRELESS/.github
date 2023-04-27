@@ -2,6 +2,11 @@
 <!-- Please provide a brief summary of the changes proposed in this pull request. Make sure branch name matches the ticket below. -->
 
 
+## Release Notes
+<!-- Please provide the release notes for this change. Remember to use a clear short text to describe the changes. -->
+<!-- This field is mandatory. -->
+
+
 ## Ticket
 <!-- Place associated JIRA ticket link here in this format: [NEX-XXXX](URL). -->
 <!-- You can copy the ticket link located at top of the ticket page and paste it here. Github will format it automatically for you. -->
@@ -31,6 +36,7 @@
 ## Procedures
 
 - I have updated the Title with Jira Ticket Id
+- I have included the mandatory release notes in the Pull Request
 - I have listed critical dependencies in Additional Notes / Overview
 - I have read the [contributing guidelines](CONTRIBUTING.md) and my changes adhere to them
 - I have scheduled a formal code review with atleast 2 others, and applied feedback
