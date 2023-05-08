@@ -13,7 +13,7 @@ Generic message for small changes so it only appears once in the aggregated rele
 
 
 ## Ticket
-<!-- Place associated JIRA ticket link here in this format: [NEX-XXXX](URL). -->
+<!-- Place associated JIRA ticket link here in this format: [NEX-1000](https://hme.atlassian.net/browse/NEX-1000). -->
 <!-- You can copy the ticket link located at top of the ticket page and paste it here. Github will format it automatically for you. -->
 
 
