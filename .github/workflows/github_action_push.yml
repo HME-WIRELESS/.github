@@ -1,0 +1,14 @@
+name: Build IPK for every push
+on: [push]
+
+jobs:
+  execute_script:
+    runs-on: self-hosted
+
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v2
+      
+    - name: Run local script
+      run: |
+        /tmp/test.sh
