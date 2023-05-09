@@ -3,13 +3,17 @@
 
 
 ## Release Notes
-<!-- Please provide the release notes for this change. Remember to use a clear short text to describe the changes. -->
-<!-- Use the following fields as a templete, remove the ones not used. -->
-New feature - "Feature: "  
-Change or enhancement - "Updated: "  
-Bug fixes - "Fixed: "  
-Generic message for small changes so it only appears once in the aggregated release note - "Performance and stability improvements"  
-<!-- This field is mandatory. -->
+<!-- Please provide the release notes for this change. Remember to use a clear short text to describe the changes. -->  
+<!-- This field is mandatory. -->  
+<!-- Use the following fields as a templete, remove the ones not used. -->  
+<!-- New feature -->  
+Feature:  
+<!-- Change or enhancement -->  
+Updated:  
+<!-- Bug fixes -->  
+Fixed:  
+<!-- Generic message for small changes so it only appears once in the aggregated release note -->  
+Performance and stability improvements  
 
 
 ## Ticket
