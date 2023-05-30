@@ -26,10 +26,6 @@ Updated:
 <!-- List any changes made to the application code, including the reasoning behind the changes. -->
 
 
-## Test Plan
-<!-- Place Test Specifications (if they were done) -->
-
-
 ## Additional Notes
 <!-- Provide any additional notes or information that may be relevant to this pull request. -->
 <!-- Please include any relevant links or resources, such as related issues or documentation. -->
