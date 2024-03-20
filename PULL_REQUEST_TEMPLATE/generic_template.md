@@ -6,7 +6,7 @@
 <!-- Please provide the release notes for this change. Remember to use a clear short text to describe the changes. -->  
 <!-- This field is mandatory. -->  
 <!-- Generic message for small changes so it only appears once in the aggregated release note -->  
-Performance and stability improvements  
+Other:   
 
 
 ## Ticket
