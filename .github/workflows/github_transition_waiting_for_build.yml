@@ -1,0 +1,17 @@
+name: Transition PR Jira
+on:
+  pull_request:
+    types:
+      - closed
+jobs:
+  transition_jira:
+    runs-on: self-hosted
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
+    steps:
+      - if: ${{ github.event.pull_request.merged == true }}
+        name: Run Jira transition script
+        run: |
+            echo "${{ github.event.pull_request.number }}" 
+            python3 ~/tools/github_actions/parse_pull_request.py ${{ secrets.GITHUB_TOKEN }} ${{ github.event.pull_request.number }} ${{ github.repository }} "Waiting For Build" ${{ secrets.JIRA_TOKEN }}

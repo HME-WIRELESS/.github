@@ -1,0 +1,29 @@
+name: Assign and Check Pull Request
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  BS7000_check_PR:
+    runs-on: self-hosted
+
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v3
+
+    - name: Assign PR to creator
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const { owner, repo, number } = context.issue;
+          const assignee = context.payload.pull_request.user.login;
+          await github.rest.issues.addAssignees({
+            owner,
+            repo,
+            issue_number: number,
+            assignees: [assignee],
+          });
+          console.log(`✅ Assigned PR #${number} to ${assignee}`);
+      
