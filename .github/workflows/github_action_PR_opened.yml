@@ -1,4 +1,4 @@
-name: Assign and Check Pull Request
+name: PR Opened
 on:
   pull_request:
     types:
@@ -6,7 +6,7 @@ on:
       - synchronize
 
 jobs:
-  BS7000_check_PR:
+  PR_opened:
     runs-on: self-hosted
 
     steps:
@@ -27,3 +27,8 @@ jobs:
           });
           console.log(`✅ Assigned PR #${number} to ${assignee}`);
       
+    - name: Run local script
+      run: |
+        echo "${{ github.event.pull_request.number }}" > PR_NUMBER.txt
+        chmod +x ~/tools/github_actions/BS7000_check_PR.sh
+        ~/tools/github_actions/BS7000_check_PR.sh
