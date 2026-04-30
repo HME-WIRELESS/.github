@@ -102,8 +102,8 @@ jobs:
         fi
 
     # Notify the GHA has been skipped with no error
-    - name: Skip Notification
+    - name: GHA Skipped Notification
       if: steps.check_ipk.outputs.exists == 'false'
       run: |
         echo "::notice title=Skipping IPK Build::No '/ipk' directory found in this repository. All subsequent build steps will be skipped."
-        echo "No /ipk folder found. Exiting smoothly."
+        echo "No /ipk folder found. GHA Skipped. Exiting smoothly."
