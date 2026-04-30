@@ -1,0 +1,20 @@
+name: Save title and description
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  BS7000_save_PR_title_description:
+    runs-on: self-hosted
+
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v3
+      
+    - name: Run local script
+      run: |
+        echo "${{ github.event.pull_request.title }}" > PR_TITLE.txt
+        echo "${{ github.event.pull_request.body }}" > PR_DESCRIPTION.txt
+        chmod +x ~/tools/github_actions/BS7000_save_PR_title_description.sh
+        ~/tools/github_actions/BS7000_save_PR_title_description.sh

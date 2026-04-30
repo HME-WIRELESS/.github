@@ -1,0 +1,109 @@
+name: Build IPK for every push
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  BS7000_build_IPK:
+    runs-on: self-hosted
+
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v3
+
+    # Check if the /ipk folder exists ---
+    - name: Check for ipk folder
+      id: check_ipk
+      run: |
+        if [ -d "ipk" ]; then
+          echo "exists=true" >> $GITHUB_OUTPUT
+        else
+          echo "exists=false" >> $GITHUB_OUTPUT
+        fi
+      
+    - name: Run local script
+      if: steps.check_ipk.outputs.exists == 'true'
+      run: |
+        chmod +x ~/tools/github_actions/BS7000_build_IPK.sh
+        ~/tools/github_actions/BS7000_build_IPK.sh
+
+    - name: Get PR from commit
+      if: steps.check_ipk.outputs.exists == 'true'
+      id: pr
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        commit_hash="${{ github.sha }}"
+        echo "commit_hash: $commit_hash"
+        pr_number=$(curl -s -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+          -H "Accept: application/vnd.github.groot-preview+json" \
+          "https://api.github.com/repos/${{ github.repository }}/commits/${commit_hash}/pulls" \
+          | jq -r '.[0].number')
+        echo "PR number: ${pr_number}"
+        if [[ "$pr_number" == "null" ]]; then
+          echo "No pull request found for commit: $commit_hash"
+        else
+          pr_state=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/${{ github.repository }}/pulls/${pr_number}" \
+              | jq -r '.state')
+          echo "PR state: ${pr_state}"
+          echo "::set-output name=pr_state::$pr_state"
+          echo "::set-output name=commit_hash::$commit_hash"
+          echo "::set-output name=pr_number::$pr_number"
+
+          # Check if the PR already has a comment starting with the specific text
+          comment_exists=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/issues/${pr_number}/comments" \
+            | jq -r '.[] | select(.body | startswith("Find the IPK package following this link")).body' | wc -l | xargs)
+          echo "Comment exists: $comment_exists"
+          if [[ "$comment_exists" -gt 0 ]]; then
+            echo "The PR already has the desired comment. Skipping commenting."
+            echo "::set-output name=comment_exists::true"
+          else
+            echo "The PR does not have the desired comment. Proceeding to comment."
+            echo "::set-output name=comment_exists::false"
+          fi
+        fi
+        
+    - name: Get IPK URL
+      if: steps.check_ipk.outputs.exists == 'true'
+      id: get_ipk_url
+      run: |
+        pr_number="${{ steps.pr.outputs.pr_number }}"
+        pr_state="${{ steps.pr.outputs.pr_state }}"
+        commit_hash="${{ steps.pr.outputs.commit_hash }}"
+        if [[ "$pr_state" == "closed" ]]; then
+          ipk_url=$(cat IPK_URL.txt)
+          markdown_link="[$ipk_url]($ipk_url)"
+          echo "::set-output name=markdown_link::$markdown_link"
+        else
+          echo "No closed Pull Request found for commit: $commit_hash"
+          echo "Step skipped"
+        fi
+
+    - name: Comment on PR
+      if: steps.check_ipk.outputs.exists == 'true'
+      run: |
+        comment_exists="${{ steps.pr.outputs.comment_exists }}"
+        pr_number="${{ steps.pr.outputs.pr_number }}"
+        pr_state="${{ steps.pr.outputs.pr_state }}"
+        commit_hash="${{ steps.pr.outputs.commit_hash }}"
+        markdown_link="${{ steps.get_ipk_url.outputs.markdown_link }}"
+        if [[ "$pr_state" == "closed" ]] && [[ "$comment_exists" == "false" ]]; then
+          curl -L -X POST -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/issues/${pr_number}/comments" \
+            -d '{"body":"Find the IPK package following this link '"$markdown_link"'"}'
+        else
+          echo "Either no closed Pull Request was found for commit $commit_hash"
+          echo "or the PR already has the desired comment"
+          echo "Step skipped"
+        fi
+
+    # Notify the GHA has been skipped with no error
+    - name: GHA Skipped Notification
+      if: steps.check_ipk.outputs.exists == 'false'
+      run: |
+        echo "::notice title=Skipping IPK Build::No '/ipk' directory found in this repository. All subsequent build steps will be skipped."
+        echo "No /ipk folder found. GHA Skipped. Exiting smoothly."

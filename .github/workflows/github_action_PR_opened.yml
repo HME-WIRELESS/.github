@@ -27,3 +27,20 @@ jobs:
           });
           console.log(`✅ Assigned PR #${number} to ${assignee}`);
       
+    # Check if the /ipk folder exists
+    - name: Check for ipk folder
+      id: check_ipk
+      run: |
+        if [ -d "ipk" ]; then
+          echo "exists=true" >> $GITHUB_OUTPUT
+        else
+          echo "exists=false" >> $GITHUB_OUTPUT
+        fi
+
+    # Only runs if the previous step found IPK folder
+    - name: Run local script
+      if: steps.check_ipk.outputs.exists == 'true'
+      run: |
+        echo "${{ github.event.pull_request.number }}" > PR_NUMBER.txt
+        chmod +x ~/tools/github_actions/BS7000_check_PR.sh
+        ~/tools/github_actions/BS7000_check_PR.sh
